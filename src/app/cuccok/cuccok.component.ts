@@ -12,7 +12,7 @@ import { CuccService } from '../cucc.service';
 export class CuccokComponent implements OnInit {
 
   private _cuccok: Cucc[];
-  hoveredCucc: Cucc;
+  hoveredId: string;
   highlightedId: string;
 
   constructor(

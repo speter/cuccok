@@ -1,6 +1,6 @@
 <p *ngIf="!cuccok">Karbantartás alatt...</p>
-<table *ngIf="cuccok" (mouseleave)="hoveredCucc = undefined">
-  <tr (mouseover)="hoveredCucc = undefined">
+<table *ngIf="cuccok" (mouseleave)="hoveredId = undefined">
+  <tr (mouseover)="hoveredId = undefined">
     <th>ID</th>
     <th>Megnevezés</th>
     <th>Mennyiség</th>
@@ -8,10 +8,10 @@
     <th>Eltéve</th>
   </tr>
   <tr *ngFor="let cucc of cuccok"
-  [class.hovered]="cucc === hoveredCucc"
+  [class.hovered]="cucc.id === hoveredId"
   [class.highlighted]="cucc.id === highlightedId"
   (click)="onSelect(cucc)"
-  (mouseover)="hoveredCucc = cucc">
+  (mouseover)="hoveredId = cucc.id">
     <td title="{{cucc.id}}">{{cucc.id | slice:0:6}}</td>
     <td>{{cucc.megnevezes}}</td>
     <td>{{cucc.mennyiseg}}</td>
