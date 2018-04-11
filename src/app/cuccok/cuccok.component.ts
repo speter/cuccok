@@ -20,7 +20,7 @@ export class CuccokComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private cuccService: CuccService
   ) {
-    this.highlightedId = this.activatedRoute.snapshot.queryParamMap.get('highlighted');
+    this.highlightedId = this.activatedRoute.snapshot.fragment;
   }
 
   ngOnInit() {
