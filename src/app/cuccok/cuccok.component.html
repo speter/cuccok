@@ -1,0 +1,25 @@
+<p *ngIf="!cuccok">Karbantartás alatt...</p>
+<table *ngIf="cuccok" (mouseleave)="hoveredCucc = undefined">
+  <tr (mouseover)="hoveredCucc = undefined">
+    <th>ID</th>
+    <th>Megnevezés</th>
+    <th>Mennyiség</th>
+    <th>Rekesz</th>
+    <th>Eltéve</th>
+  </tr>
+  <tr *ngFor="let cucc of cuccok"
+  [class.hovered]="cucc === hoveredCucc"
+  (click)="onSelect(cucc)"
+  (mouseover)="hoveredCucc = cucc">
+    <td title="{{cucc.id}}">{{cucc.id | slice:0:6}}</td>
+    <td>{{cucc.megnevezes}}</td>
+    <td>{{cucc.mennyiseg}}</td>
+    <td>{{cucc.rekesz}}</td>
+    <td>{{cucc.elteve}}</td>
+  </tr>
+</table>
+<div>
+  <a routerLink="/cucc/uj">
+    <button (click)="onCreate()">Új</button>
+  </a>
+</div>

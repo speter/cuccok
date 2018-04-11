@@ -1,0 +1,28 @@
+<div *ngIf="cucc">
+  <div *ngIf="cucc.id"><span>ID:</span> {{cucc.id}}</div>
+  <div>
+    <label>Megnevezés:
+      <input [(ngModel)]="cucc.megnevezes" />
+    </label>
+  </div>
+  <div>
+    <label>Mennyiség:
+      <input [(ngModel)]="cucc.mennyiseg" type="number" />
+    </label>
+  </div>
+  <div>
+    <label>Rekesz:
+      <input [(ngModel)]="cucc.rekesz" />
+    </label>
+  </div>
+  <div>
+    <label>Eltéve:
+      <input [(ngModel)]="cucc.elteve" />
+    </label>
+  </div>
+  <div>
+    <button (click)="onReturn()">Vissza</button>
+    <button *ngIf="cucc.id" (click)="onDelete(cucc)">Töröl</button>
+    <button (click)="onSave(cucc)">Ment</button>
+  </div>
+</div>
