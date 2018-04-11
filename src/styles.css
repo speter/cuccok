@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.highlighted
+{
+  background-color: #e0e0e0;
+}
 .hovered
 {
   background-color: #c0d0ff;

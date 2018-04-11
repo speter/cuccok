@@ -36,7 +36,11 @@ export class CuccComponent implements OnInit {
   }
 
   onReturn() {
-    this.router.navigateByUrl('/');
+    if (this.cucc.id) {
+      this.router.navigateByUrl('/cuccok?highlighted=' + this.cucc.id);
+    } else {
+      this.router.navigateByUrl('/');
+    }
   }
 
   onDelete() {
@@ -52,12 +56,12 @@ export class CuccComponent implements OnInit {
     console.log(this.cucc);
     if (this.cucc.id) {
       this.cuccService.updateCucc(this.cucc).subscribe(
-        data => this.router.navigateByUrl('/'),
+        data => this.router.navigateByUrl('/cuccok?highlighted=' + this.cucc.id),
         err => console.error(err)
       );
     } else {
       this.cuccService.createCucc(this.cucc).subscribe(
-        id => this.router.navigateByUrl('/'),
+        id => this.router.navigateByUrl('/cuccok?highlighted=' + id),
         err => console.error(err)
       );
     }

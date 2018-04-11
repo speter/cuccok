@@ -9,6 +9,7 @@
   </tr>
   <tr *ngFor="let cucc of cuccok"
   [class.hovered]="cucc === hoveredCucc"
+  [class.highlighted]="cucc.id === highlightedId"
   (click)="onSelect(cucc)"
   (mouseover)="hoveredCucc = cucc">
     <td title="{{cucc.id}}">{{cucc.id | slice:0:6}}</td>

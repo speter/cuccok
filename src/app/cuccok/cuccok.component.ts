@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Cucc } from '../cucc';
 import { CuccService } from '../cucc.service';
@@ -12,25 +12,23 @@ import { CuccService } from '../cucc.service';
 export class CuccokComponent implements OnInit {
 
   private _cuccok: Cucc[];
-  selectedCucc: Cucc;
   hoveredCucc: Cucc;
+  highlightedId: string;
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private cuccService: CuccService
-  ) { }
+  ) {
+    this.highlightedId = this.activatedRoute.snapshot.queryParamMap.get('highlighted');
+  }
 
   ngOnInit() {
     this.retrieveCuccok();
   }
 
   onSelect(cucc: Cucc): void {
-    this.selectedCucc = cucc;
     this.router.navigateByUrl('/cucc/' + cucc.id);
-  }
-
-  onCreate(): void {
-      this.selectedCucc = new Cucc();
   }
 
   set cuccok(cuccok: Cucc[]) {
