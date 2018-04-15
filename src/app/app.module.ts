@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { CuccokComponent } from './cuccok/cuccok.component';
 import { CuccService } from './cucc.service';
 import { CuccComponent } from './cucc/cucc.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
