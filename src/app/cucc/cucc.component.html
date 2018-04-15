@@ -1,19 +1,20 @@
-  <form *ngIf="cucc" class="cucc-form">
+  <form *ngIf="cucc" (ngSubmit)="onSave(cucc)" #cuccForm="ngForm"
+  class="cucc-form">
     <mat-form-field *ngIf="cucc.id" class="cucc-full-width">
       <input matInput placeholder="ID" [(ngModel)]="cucc.id" disabled
       name="id" />
     </mat-form-field>
     <mat-form-field class="cucc-full-width">
       <input matInput placeholder="Megnevezés" [(ngModel)]="cucc.megnevezes"
-      name="megnevezes" />
+      name="megnevezes" required />
     </mat-form-field>
     <mat-form-field class="cucc-full-width">
       <input matInput placeholder="Mennyiség" [(ngModel)]="cucc.mennyiseg"
-      type="number" name="mennyiseg" />
+      type="number" name="mennyiseg" required />
     </mat-form-field>
     <mat-form-field class="cucc-full-width">
       <input matInput placeholder="Rekesz" [(ngModel)]="cucc.rekesz"
-      name="rekesz" />
+      name="rekesz" required />
     </mat-form-field>
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Eltéve"
@@ -22,8 +23,9 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <div>
-      <button mat-button (click)="onReturn()">Vissza</button>
-      <button *ngIf="cucc.id" mat-button (click)="onDelete(cucc)">Töröl</button>
-      <button mat-button (click)="onSave(cucc)">Ment</button>
+      <button mat-button type="button" (click)="onReturn()">Vissza</button>
+      <button *ngIf="cucc.id" mat-button type="button" (click)="onDelete(cucc)">
+        Töröl</button>
+      <button mat-button type="submit" [disabled]="!cuccForm.form.valid">Ment</button>
     </div>
   </form>
