@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 .highlighted
 {
   background-color: #e0e0e0;
@@ -6,4 +7,13 @@
 .hovered
 {
   background-color: #c0d0ff;
+}
+
+.cucc-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.cucc-full-width {
+  width: 100%;
 }

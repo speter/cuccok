@@ -1,28 +1,27 @@
-<div *ngIf="cucc">
-  <div *ngIf="cucc.id"><span>ID:</span> {{cucc.id}}</div>
-  <div>
-    <label>Megnevezés:
-      <input [(ngModel)]="cucc.megnevezes" />
-    </label>
-  </div>
-  <div>
-    <label>Mennyiség:
-      <input [(ngModel)]="cucc.mennyiseg" type="number" />
-    </label>
-  </div>
-  <div>
-    <label>Rekesz:
-      <input [(ngModel)]="cucc.rekesz" />
-    </label>
-  </div>
-  <div>
-    <label>Eltéve:
-      <input [(ngModel)]="cucc.elteve" />
-    </label>
-  </div>
-  <div>
-    <button (click)="onReturn()">Vissza</button>
-    <button *ngIf="cucc.id" (click)="onDelete(cucc)">Töröl</button>
-    <button (click)="onSave(cucc)">Ment</button>
-  </div>
-</div>
+  <form *ngIf="cucc" class="cucc-form">
+    <mat-form-field *ngIf="cucc.id" class="cucc-full-width">
+      <input matInput placeholder="ID" [(ngModel)]="cucc.id" disabled
+      name="id" />
+    </mat-form-field>
+    <mat-form-field class="cucc-full-width">
+      <input matInput placeholder="Megnevezés" [(ngModel)]="cucc.megnevezes"
+      name="megnevezes" />
+    </mat-form-field>
+    <mat-form-field class="cucc-full-width">
+      <input matInput placeholder="Mennyiség" [(ngModel)]="cucc.mennyiseg"
+      type="number" name="mennyiseg" />
+    </mat-form-field>
+    <mat-form-field class="cucc-full-width">
+      <input matInput placeholder="Rekesz" [(ngModel)]="cucc.rekesz"
+      name="rekesz" />
+    </mat-form-field>
+    <mat-form-field class="cucc-full-width">
+      <input matInput placeholder="Eltéve" [(ngModel)]="cucc.elteve"
+      type="date" name="elteve" />
+    </mat-form-field>
+    <div>
+      <button mat-button (click)="onReturn()">Vissza</button>
+      <button *ngIf="cucc.id" mat-button (click)="onDelete(cucc)">Töröl</button>
+      <button mat-button (click)="onSave(cucc)">Ment</button>
+    </div>
+  </form>
