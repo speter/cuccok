@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -26,6 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],

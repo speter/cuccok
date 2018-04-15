@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import * as moment from 'moment';
+import { Moment } from 'moment';
+
 import { Cucc } from '../cucc';
 import { CuccService } from '../cucc.service';
 
@@ -12,6 +15,7 @@ import { CuccService } from '../cucc.service';
 export class CuccComponent implements OnInit {
 
   @Input() cucc: Cucc;
+  @Input() _elteve: Moment;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +33,10 @@ export class CuccComponent implements OnInit {
       this.cucc = new Cucc();
     } else {
       this.cuccService.getCucc(id).subscribe(
-        cucc => this.cucc = cucc,
+        cucc => {
+          this.cucc = cucc;
+          this._elteve = cucc.elteve ? moment(cucc.elteve, 'YYYY-MM-DD') : null;
+        },
         err => console.error(err)
       );
     }
@@ -44,7 +51,6 @@ export class CuccComponent implements OnInit {
   }
 
   onDelete() {
-    console.log('onDelete');
     this.cuccService.deleteCucc(this.cucc.id).subscribe(
       data => this.router.navigateByUrl('/'),
       err => console.error(err)
@@ -52,8 +58,7 @@ export class CuccComponent implements OnInit {
   }
 
   onSave() {
-    console.log('onSave');
-    console.log(this.cucc);
+    this.cucc.elteve = this._elteve ? this._elteve.format('YYYY-MM-DD') : null;
     if (this.cucc.id) {
       this.cuccService.updateCucc(this.cucc).subscribe(
         data => this.router.navigateByUrl('/cuccok#' + this.cucc.id),

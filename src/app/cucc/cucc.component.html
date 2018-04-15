@@ -15,9 +15,11 @@
       <input matInput placeholder="Rekesz" [(ngModel)]="cucc.rekesz"
       name="rekesz" />
     </mat-form-field>
-    <mat-form-field class="cucc-full-width">
-      <input matInput placeholder="Eltéve" [(ngModel)]="cucc.elteve"
-      type="date" name="elteve" />
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Eltéve"
+      [(ngModel)]="_elteve" name="elteve" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <div>
       <button mat-button (click)="onReturn()">Vissza</button>
