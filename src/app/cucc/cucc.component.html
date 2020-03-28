@@ -1,4 +1,4 @@
-  <form *ngIf="cucc" (ngSubmit)="onSave(cucc)" #cuccForm="ngForm"
+  <form *ngIf="cucc" (ngSubmit)="onSave()" #cuccForm="ngForm"
   class="cucc-form">
     <mat-form-field *ngIf="cucc.id" class="cucc-full-width">
       <input matInput placeholder="ID" [(ngModel)]="cucc.id" disabled
@@ -24,7 +24,7 @@
     </mat-form-field>
     <div>
       <button mat-button type="button" (click)="onReturn()">Vissza</button>
-      <button *ngIf="cucc.id" mat-button type="button" (click)="onDelete(cucc)">
+      <button *ngIf="cucc.id" mat-button type="button" (click)="onDelete()">
         Töröl</button>
       <button mat-button type="submit" [disabled]="!cuccForm.form.valid">Ment</button>
     </div>
